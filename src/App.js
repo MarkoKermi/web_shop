@@ -1,10 +1,21 @@
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Header from './containers/Header';
+import ProductListing from './containers/ProductListing';
+import ProductDetail from './containers/ProductDetail';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
-    </div>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" exact component={ProductListing} />
+          <Route path="/product/:productId" exact component={ProductDetail} />
+          <Route>404 Not Found</Route>
+        </Routes>
+      </BrowserRouter>
+    </div >
   );
 }
 
